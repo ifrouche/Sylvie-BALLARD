@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exposition Virtuelle | Ballard</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
+
+    <style>
+        :root { 
+            --bg-color: #0d0d0d; 
+            --title-color: #D4AF37; /* Couleur Or pour les titres de tableaux */
+            --header-font: 'Montserrat', sans-serif;
+            --art-font: 'Playfair Display', serif;
+        }
+
+        body { 
+            font-family: var(--header-font); 
+            background-color: var(--bg-color); 
+            color: #fff; 
+            margin: 0; 
+            overflow-x: hidden; 
+        }
+        
+        /* En-tête élégant */
+        header { 
+            height: 40vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+
+        h1 { 
+            font-size: 3rem; 
+            font-weight: 100; 
+            letter-spacing: 15px; 
+            text-transform: uppercase; 
+            margin: 0; 
+            color: #eee;
+        }
+
+        .subtitle { 
+            font-family: var(--art-font); 
+            font-style: italic; 
+            color: #666; 
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        /* Galerie */
+        .container { max-width: 1100px; margin: 60px auto; padding: 20px; }
+        
+        .artwork { margin-bottom: 120px; text-align: center; }
+
+        .frame { 
+            background: #fff; 
+            padding: 12px; 
+            display: inline-block; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.7); 
+            cursor: zoom-in; 
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .frame:hover { transform: scale(1.03); }
+        
+        .artwork img { 
+            max-width: 100%; 
+            max-height: 70vh; /* Empêche l'image d'être trop grande */
+            display: block; 
+            border: 1px solid #eee;
+        }
+
+        /* Style des titres de tableaux */
+        .info { margin-top: 25px; }
+        .title { 
+            font-family: var(--art-font);
+            font-size: 2.2rem; 
+            font-style: italic;
+            font-weight: 400; 
+            color: var(--title-color); 
+            display: block;
+        }
+        .meta { color: #555; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; margin-top: 5px; display: block;}
+
+        /* --- STYLE DU ZOOM (LIGHTBOX) --- */
+        #lightbox {
+            position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.98); display: none; align-items: center; justify-content: center;
+            cursor: zoom-out;
+        }
+        #lightbox img { max-width: 95%; max-height: 95%; border: 2px solid #333; }
+        #lightbox.active { display: flex; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Sylvie BALLARD</h1>
+    <p class="subtitle">Galerie d'Art Virtuelle</p>
+</header>
+<section style="max-width: 800px; margin: 60px auto; text-align: center; padding: 0 20px;">
+    <h2 style="font-family: 'Playfair Display', serif; font-weight: 400; color: #D4AF37; font-size: 1.5rem; letter-spacing: 3px; text-transform: uppercase;">Note de l'Artiste</h2>
+    <p style="font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.8; color: #aaa; font-size: 1.1rem; font-style: italic;">
+        "À travers cette série, Sylvie Ballard explore la tension entre le chaos des pigments et la structure de l'émotion. 
+        Chaque toile est un dialogue instinctif où la matière s'exprime librement, invitant le spectateur à une déambulation 
+        sensorielle entre ombre et lumière. Ici, la couleur ne décrit pas, elle ressent."
+    </p>
+    <div style="width: 50px; height: 1px; background: #D4AF37; margin: 30px auto;"></div>
+</section>
+
+<div class="container">
+    <div class="artwork">
+        <div class="frame" onclick="openLightbox(this)">
+            <img src="cadre1.jpg" alt="Symphonie Florale">
+        </div>
+        <div class="info">
+            <span class="title">Symphonie Florale</span>
+            <span class="meta">Acrylique sur toile</span>
+        </div>
+    </div>
+
+    <div class="artwork">
+        <div class="frame" onclick="openLightbox(this)">
+            <img src="cadre2.jpg" alt="Rêverie Azur">
+        </div>
+        <div class="info">
+            <span class="title">Rêverie Azur</span>
+            <span class="meta">Acrylique sur toile</span>
+        </div>
+    </div>
+
+    <div class="artwork">
+        <div class="frame" onclick="openLightbox(this)">
+            <img src="cadre3.jpg" alt="Symphonie Florale">
+        </div>
+        <div class="info">
+            <span class="title">Symphonie Florale</span>
+            <span class="meta">Acrylique sur toile</span>
+        </div>
+    </div>
+
+    <div class="artwork">
+        <div class="frame" onclick="openLightbox(this)">
+            <img src="cadre4.jpg" alt="Rêverie Azur">
+        </div>
+        <div class="info">
+            <span class="title">Rêverie Azur</span>
+            <span class="meta">Acrylique sur toile</span>
+        </div>
+    </div>
+    
+    <div class="artwork">
+        <div class="frame" onclick="openLightbox(this)">
+            <img src="cadre5.jpg" alt="Symphonie Florale">
+        </div>
+        <div class="info">
+            <span class="title">Symphonie Florale</span>
+            <span class="meta">Acrylique sur toile</span>
+        </div>
+    </div>
+
+    <div class="artwork">
+        <div class="frame" onclick="openLightbox(this)">
+            <img src="cadre6.jpg" alt="Rêverie Azur">
+        </div>
+        <div class="info">
+            <span class="title">Rêverie Azur</span>
+            <span class="meta">Acrylique sur toile</span>
+        </div>
+    </div>
+
+    <div class="artwork">
+        <div class="frame" onclick="openLightbox(this)">
+            <img src="cadre7.jpg" alt="Symphonie Florale">
+        </div>
+        <div class="info">
+            <span class="title">Symphonie Florale</span>
+            <span class="meta">Acrylique sur toile</span>
+        </div>
+    </div>
+
+    <div class="artwork">
+        <div class="frame" onclick="openLightbox(this)">
+            <img src="cadre8.jpg" alt="Rêverie Azur">
+        </div>
+        <div class="info">
+            <span class="title">Rêverie Azur</span>
+            <span class="meta">Acrylique sur toile</span>
+        </div>
+    </div>
+
+    <div class="artwork">
+        <div class="frame" onclick="openLightbox(this)">
+            <img src="cadre9.jpg" alt="Rêverie Azur">
+        </div>
+        <div class="info">
+            <span class="title">Rêverie Azur</span>
+            <span class="meta">Acrylique sur toile</span>
+        </div>
+    </div>
+</div>
+
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="">
+</div>
+
+<script>
+    function openLightbox(element) {
+        const imgSrc = element.querySelector('img').src;
+        document.getElementById('lightbox-img').src = imgSrc;
+        document.getElementById('lightbox').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+</script>
+
+</body>
+</html>
