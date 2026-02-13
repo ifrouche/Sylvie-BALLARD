@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exposition Virtuelle | Ballard</title>
+    <title>Exposition Virtuelle | Sylvie Ballard</title>
+    <meta name="description" content="Découvrez l'exposition virtuelle de Sylvie Ballard, une exploration entre chaos des pigments et structure de l'émotion.">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
 
     <style>
         :root { 
             --bg-color: #0d0d0d; 
-            --title-color: #D4AF37; /* Couleur Or pour les titres de tableaux */
+            --title-color: #D4AF37; 
             --header-font: 'Montserrat', sans-serif;
             --art-font: 'Playfair Display', serif;
         }
@@ -23,7 +24,6 @@
             overflow-x: hidden; 
         }
         
-        /* En-tête élégant */
         header { 
             height: 40vh; 
             display: flex; 
@@ -32,12 +32,13 @@
             align-items: center; 
             text-align: center;
             border-bottom: 1px solid #222;
+            padding: 20px;
         }
 
         h1 { 
-            font-size: 3rem; 
+            font-size: clamp(1.5rem, 5vw, 3rem); 
             font-weight: 100; 
-            letter-spacing: 15px; 
+            letter-spacing: clamp(5px, 2vw, 15px); 
             text-transform: uppercase; 
             margin: 0; 
             color: #eee;
@@ -51,10 +52,44 @@
             margin-top: 10px;
         }
 
-        /* Galerie */
-        .container { max-width: 1100px; margin: 60px auto; padding: 20px; }
+        .artist-note {
+            max-width: 800px; 
+            margin: 60px auto; 
+            text-align: center; 
+            padding: 0 20px;
+        }
+
+        .artist-note h2 {
+            font-family: var(--art-font); 
+            font-weight: 400; 
+            color: var(--title-color); 
+            font-size: 1.5rem; 
+            letter-spacing: 3px; 
+            text-transform: uppercase;
+        }
+
+        .artist-note p {
+            font-weight: 300; 
+            line-height: 1.8; 
+            color: #aaa; 
+            font-size: 1.1rem; 
+            font-style: italic;
+        }
+
+        .divider {
+            width: 50px; height: 1px; background: var(--title-color); margin: 30px auto;
+        }
+
+        .container { 
+            max-width: 1200px; 
+            margin: 60px auto; 
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 80px 40px;
+        }
         
-        .artwork { margin-bottom: 120px; text-align: center; }
+        .artwork { text-align: center; }
 
         .frame { 
             background: #fff; 
@@ -63,22 +98,22 @@
             box-shadow: 0 30px 60px rgba(0,0,0,0.7); 
             cursor: zoom-in; 
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
         }
 
         .frame:hover { transform: scale(1.03); }
         
         .artwork img { 
             max-width: 100%; 
-            max-height: 70vh; /* Empêche l'image d'être trop grande */
+            max-height: 70vh; 
             display: block; 
             border: 1px solid #eee;
         }
 
-        /* Style des titres de tableaux */
         .info { margin-top: 25px; }
         .title { 
             font-family: var(--art-font);
-            font-size: 2.2rem; 
+            font-size: 1.8rem; 
             font-style: italic;
             font-weight: 400; 
             color: var(--title-color); 
@@ -86,14 +121,31 @@
         }
         .meta { color: #555; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; margin-top: 5px; display: block;}
 
-        /* --- STYLE DU ZOOM (LIGHTBOX) --- */
         #lightbox {
             position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.98); display: none; align-items: center; justify-content: center;
-            cursor: zoom-out;
+            cursor: zoom-out; opacity: 0; transition: opacity 0.3s ease;
         }
-        #lightbox img { max-width: 95%; max-height: 95%; border: 2px solid #333; }
-        #lightbox.active { display: flex; }
+        #lightbox.active { display: flex; opacity: 1; }
+        #lightbox img { max-width: 90%; max-height: 90%; border: 2px solid #333; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
+
+        footer { margin-top: 100px; border-top: 1px solid #222; }
+        .contact-section { text-align: center; padding: 60px 20px; }
+        .contact-btn {
+            display: inline-block; padding: 15px 40px; border: 1px solid var(--title-color); 
+            color: var(--title-color); text-decoration: none; letter-spacing: 2px; 
+            text-transform: uppercase; font-size: 0.8rem; transition: 0.3s;
+        }
+        .contact-btn:hover { background: var(--title-color); color: #000; }
+        
+        .social-links { text-align: center; margin-bottom: 30px; }
+        .social-links a { text-decoration: none; margin: 0 12px; transition: opacity 0.3s; }
+        .social-links a:hover { opacity: 0.7; }
+        
+        .copyright {
+            text-align: center; padding: 40px; background: #0a0a0a; color: #444; 
+            font-size: 0.7rem; letter-spacing: 2px;
+        }
     </style>
 </head>
 <body>
@@ -102,20 +154,21 @@
     <h1>Sylvie BALLARD</h1>
     <p class="subtitle">Galerie d'Art Virtuelle</p>
 </header>
-<section style="max-width: 800px; margin: 60px auto; text-align: center; padding: 0 20px;">
-    <h2 style="font-family: 'Playfair Display', serif; font-weight: 400; color: #D4AF37; font-size: 1.5rem; letter-spacing: 3px; text-transform: uppercase;">Note de l'Artiste</h2>
-    <p style="font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.8; color: #aaa; font-size: 1.1rem; font-style: italic;">
+
+<section class="artist-note">
+    <h2>Note de l'Artiste</h2>
+    <p>
         "À travers cette série, Sylvie Ballard explore la tension entre le chaos des pigments et la structure de l'émotion. 
         Chaque toile est un dialogue instinctif où la matière s'exprime librement, invitant le spectateur à une déambulation 
-        sensorielle entre ombre et lumière. Ici, la couleur ne décrit pas, elle ressent."
+        sensorielle entre ombre et lumière."
     </p>
-    <div style="width: 50px; height: 1px; background: #D4AF37; margin: 30px auto;"></div>
+    <div class="divider"></div>
 </section>
 
-<div class="container">
+<main class="container">
     <div class="artwork">
-        <div class="frame" onclick="openLightbox(this)">
-            <img src="cadre1.jpg" alt="Symphonie Florale">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeypress="if(event.key==='Enter') openLightbox(this)">
+            <img src="cadre1.jpg" alt="Symphonie Florale - Peinture acrylique par Sylvie Ballard" loading="lazy">
         </div>
         <div class="info">
             <span class="title">Symphonie Florale</span>
@@ -124,18 +177,8 @@
     </div>
 
     <div class="artwork">
-        <div class="frame" onclick="openLightbox(this)">
-            <img src="cadre2.jpg" alt="Rêverie Azur">
-        </div>
-        <div class="info">
-            <span class="title">Rêverie Azur</span>
-            <span class="meta">Acrylique sur toile</span>
-        </div>
-    </div>
-
-    <div class="artwork">
-        <div class="frame" onclick="openLightbox(this)">
-            <img src="cadre3.jpg" alt="Symphonie Florale">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeypress="if(event.key==='Enter') openLightbox(this)">
+            <img src="cadre2.jpg" alt="Symphonie Florale - Peinture acrylique par Sylvie Ballard" loading="lazy">
         </div>
         <div class="info">
             <span class="title">Symphonie Florale</span>
@@ -144,18 +187,8 @@
     </div>
 
     <div class="artwork">
-        <div class="frame" onclick="openLightbox(this)">
-            <img src="cadre4.jpg" alt="Rêverie Azur">
-        </div>
-        <div class="info">
-            <span class="title">Rêverie Azur</span>
-            <span class="meta">Acrylique sur toile</span>
-        </div>
-    </div>
-    
-    <div class="artwork">
-        <div class="frame" onclick="openLightbox(this)">
-            <img src="cadre5.jpg" alt="Symphonie Florale">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeypress="if(event.key==='Enter') openLightbox(this)">
+            <img src="cadre3.jpg" alt="Symphonie Florale - Peinture acrylique par Sylvie Ballard" loading="lazy">
         </div>
         <div class="info">
             <span class="title">Symphonie Florale</span>
@@ -164,18 +197,8 @@
     </div>
 
     <div class="artwork">
-        <div class="frame" onclick="openLightbox(this)">
-            <img src="cadre6.jpg" alt="Rêverie Azur">
-        </div>
-        <div class="info">
-            <span class="title">Rêverie Azur</span>
-            <span class="meta">Acrylique sur toile</span>
-        </div>
-    </div>
-
-    <div class="artwork">
-        <div class="frame" onclick="openLightbox(this)">
-            <img src="cadre7.jpg" alt="Symphonie Florale">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeypress="if(event.key==='Enter') openLightbox(this)">
+            <img src="cadre4.jpg" alt="Symphonie Florale - Peinture acrylique par Sylvie Ballard" loading="lazy">
         </div>
         <div class="info">
             <span class="title">Symphonie Florale</span>
@@ -184,81 +207,112 @@
     </div>
 
     <div class="artwork">
-        <div class="frame" onclick="openLightbox(this)">
-            <img src="cadre8.jpg" alt="Rêverie Azur">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeypress="if(event.key==='Enter') openLightbox(this)">
+            <img src="cadre5.jpg" alt="Symphonie Florale - Peinture acrylique par Sylvie Ballard" loading="lazy">
         </div>
         <div class="info">
-            <span class="title">Rêverie Azur</span>
+            <span class="title">Symphonie Florale</span>
             <span class="meta">Acrylique sur toile</span>
         </div>
     </div>
 
     <div class="artwork">
-        <div class="frame" onclick="openLightbox(this)">
-            <img src="cadre9.jpg" alt="Rêverie Azur">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeypress="if(event.key==='Enter') openLightbox(this)">
+            <img src="cadre6.jpg" alt="Symphonie Florale - Peinture acrylique par Sylvie Ballard" loading="lazy">
         </div>
         <div class="info">
-            <span class="title">Rêverie Azur</span>
+            <span class="title">Symphonie Florale</span>
             <span class="meta">Acrylique sur toile</span>
         </div>
     </div>
+
+    <div class="artwork">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeypress="if(event.key==='Enter') openLightbox(this)">
+            <img src="cadre7.jpg" alt="Symphonie Florale - Peinture acrylique par Sylvie Ballard" loading="lazy">
+        </div>
+        <div class="info">
+            <span class="title">Symphonie Florale</span>
+            <span class="meta">Acrylique sur toile</span>
+        </div>
+    </div>
+
+    <div class="artwork">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeypress="if(event.key==='Enter') openLightbox(this)">
+            <img src="cadre8.jpg" alt="Symphonie Florale - Peinture acrylique par Sylvie Ballard" loading="lazy">
+        </div>
+        <div class="info">
+            <span class="title">Symphonie Florale</span>
+            <span class="meta">Acrylique sur toile</span>
+        </div>
+    </div>
+
+    <div class="artwork">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeypress="if(event.key==='Enter') openLightbox(this)">
+            <img src="cadre9.jpg" alt="Symphonie Florale - Peinture acrylique par Sylvie Ballard" loading="lazy">
+        </div>
+        <div class="info">
+            <span class="title">Symphonie Florale</span>
+            <span class="meta">Acrylique sur toile</span>
+        </div>
+    </div>
+
+    </main>
+
+<div id="lightbox" onclick="closeLightbox()" aria-hidden="true" role="dialog">
+    <img id="lightbox-img" src="" alt="Zoom sur l'œuvre">
 </div>
 
-<div id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="">
-</div>
+<footer>
+    <section class="contact-section">
+        <h3 style="font-family: var(--art-font); color: var(--title-color); font-size: 1.8rem; font-style: italic;">
+            Cette visite vous a plu ?
+        </h3>
+        <p style="color: #666; margin-bottom: 30px;">Pour toute question sur une œuvre ou simplement pour laisser une impression.</p>
+        <a href="mailto:sylvie.ballard@yahoo.fr?subject=Impression sur l'exposition Ballard" class="contact-btn">
+            Laisser un message
+        </a>
+    </section>
+
+    <div class="social-links">
+        <p style="color: #555; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;">Rejoindre mon réseau</p>
+        <a href="https://www.facebook.com/sylvie.ballard.92" target="_blank" aria-label="Facebook">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/sylvie-ballard-bremont-a240a6112/" target="_blank" aria-label="LinkedIn">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+    </div>
+
+    <div class="copyright">
+        <p>© 2026 BALLARD - TOUS DROITS RÉSERVÉS</p>
+    </div>
+</footer>
 
 <script>
     function openLightbox(element) {
         const imgSrc = element.querySelector('img').src;
-        document.getElementById('lightbox-img').src = imgSrc;
-        document.getElementById('lightbox').classList.add('active');
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        lbImg.src = imgSrc;
+        lb.style.display = 'flex';
+        setTimeout(() => { lb.classList.add('active'); }, 10);
         document.body.style.overflow = 'hidden';
     }
+
     function closeLightbox() {
-        document.getElementById('lightbox').classList.remove('active');
+        const lb = document.getElementById('lightbox');
+        lb.classList.remove('active');
+        setTimeout(() => { lb.style.display = 'none'; }, 300);
         document.body.style.overflow = 'auto';
     }
+
+    // Fermer avec la touche Echap
+    document.addEventListener('keydown', (e) => {
+        if (e.key === "Escape") closeLightbox();
+    });
 </script>
-<footer style="margin-top: 100px; border-top: 1px solid #222;">
-        
-        <section style="text-align: center; padding: 60px 20px; background: #0d0d0d;">
-            <h3 style="font-family: 'Playfair Display', serif; color: #D4AF37; font-size: 1.8rem; font-style: italic;">
-                Cette visite vous a plu ?
-            </h3>
-            <p style="color: #666; font-family: 'Montserrat', sans-serif; font-weight: 300; margin-bottom: 30px; letter-spacing: 1px;">
-                Pour toute question sur une œuvre ou simplement pour laisser une impression.
-            </p>
-            
-            <a href="mailto:sylvie.ballard@yahoo.fr?subject=Impression sur l'exposition Ballard" 
-               style="display: inline-block; padding: 15px 40px; border: 1px solid #D4AF37; color: #D4AF37; 
-                      text-decoration: none; font-family: 'Montserrat', sans-serif; letter-spacing: 2px; 
-                      text-transform: uppercase; font-size: 0.8rem; transition: 0.3s;"
-               onmouseover="this.style.background='#D4AF37'; this.style.color='#000'"
-               onmouseout="this.style.background='transparent'; this.style.color='#D4AF37'">
-               Laisser un message
-            </a>
-        </section>
-<div style="text-align: center; margin-bottom: 30px;">
-    <p style="color: #555; font-family: 'Montserrat', sans-serif; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;">Rejoindre mon réseau</p>
-    
 
-    <a href="https://www.facebook.com/sylvie.ballard.92" target="_blank" title="Facebook" style="text-decoration: none; margin: 0 12px;">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-    </a>
+<script data-goatcounter="https://ifrouche.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
-    <a href="https://www.linkedin.com/in/sylvie-ballard-bremont-a240a6112/" target="_blank" title="LinkedIn" style="text-decoration: none; margin: 0 12px;">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-    </a>
-</div>
-        <div style="text-align: center; padding: 40px; background: #0a0a0a; color: #444; font-family: 'Montserrat', sans-serif; font-size: 0.7rem; letter-spacing: 2px;">
-            <p>© 2026 BALLARD - TOUS DROITS RÉSERVÉS</p>
-            
-                    
-        <script data-goatcounter="https://ifrouche.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-</div>
-        </div>
-    </footer>
-    </body>
+</body>
 </html>
