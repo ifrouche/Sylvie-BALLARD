@@ -25,7 +25,7 @@
         }
         
         header { 
-            height: 40vh; 
+            height: 25vh; 
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
@@ -39,7 +39,7 @@
             font-size: clamp(2rem, 5vw, 5rem); 
             font-weight: 100; 
             letter-spacing: clamp(5px, 2vw, 15px); 
-            text-transform: uppercase; 
+            text-transform: none; 
             margin: 0; 
             color: #eee;
         }
@@ -134,6 +134,24 @@
             color: var(--title-color); 
             display: block;
         }
+
+        .section-separator {
+            grid-column: 1 / -1; /* Indispensable pour traverser toute la grille */
+            text-align: center;
+            margin-top: 80px;    /* Espace au-dessus du titre */
+            margin-bottom: 40px; /* Espace avant les tableaux */
+        }
+
+        .section-title {
+           font-family: var(--art-font);
+           font-weight: 400;
+           color: var(--title-color);
+           font-size: 1.8rem;
+           letter-spacing: 5px;
+           text-transform: none;
+           margin-bottom: 15px;
+        }
+
         .meta { color: #555; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; margin-top: 5px; display: block;}
 
         #lightbox {
@@ -166,7 +184,7 @@
 <body>
 
 <header>
-    <h1>Sylvie Ballard</h1>
+    <h1>Sylvie BALLARD</h1>
     <p class="subtitle">Exposition Virtuelle</p>
 </header>
 
@@ -181,6 +199,11 @@ Sylvie BALLARD est installée à Villers-Cotterêts (Hauts de France)
 </section>
 
 <main class="container">
+    <div class="section-separator">
+        <h2 class="section-title">Serie Jardins de GIVERNY</h2>
+        <div class="divider"></div>
+    </div>
+
     <div class="artwork">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeypress="if(event.key==='Enter') openLightbox(this)">
             <img src="cadre1.jpg" alt="Eclats suspendus - Peinture acrylique par Sylvie Ballard" loading="lazy">
@@ -217,7 +240,7 @@ Sylvie BALLARD est installée à Villers-Cotterêts (Hauts de France)
         </div>
         <div class="info">
             <span class="title">Impulsion florale</span>
-            <span class="meta">Acrylique sur toile</span>
+            <span class="meta">Acrylique sur toile 50x61cm</span>
         </div>
     </div>
 
@@ -256,7 +279,7 @@ Sylvie BALLARD est installée à Villers-Cotterêts (Hauts de France)
             <img src="cadre8.jpg" alt="Réve sur l'eau - Peinture acrylique par Sylvie Ballard" loading="lazy">
         </div>
         <div class="info">
-            <span class="title">Réve sur l'eau</span>
+            <span class="title">Rêve sur l'eau</span>
             <span class="meta">Acrylique sur toile 80x80cm</span>
         </div>
     </div>
@@ -267,7 +290,7 @@ Sylvie BALLARD est installée à Villers-Cotterêts (Hauts de France)
         </div>
         <div class="info">
             <span class="title">Rythme suspendu</span>
-            <span class="meta">Acrylique sur toile</span>
+            <span class="meta">Acrylique sur toile 46x55cm</span>
         </div>
     </div>
 
@@ -276,28 +299,33 @@ Sylvie BALLARD est installée à Villers-Cotterêts (Hauts de France)
             <img src="cadre10.jpg" alt="Douceur indocile - Peinture acrylique par Sylvie Ballard" loading="lazy">
         </div>
         <div class="info">
-            <span class="title">Douceur indocile</span>
-            <span class="meta">Acrylique et rehauts pastels sur toile,60x73cm</span>
+            <span class="title">Sans titre</span>
+            <span class="meta">Techniques multiples sur papier 31,5x23,5cm</span>
+        </div>
+    </div>
+
+     <div class="section-separator">
+            <h2 class="section-title">Serie Graminées et Herbes Folles</h2>
+         <div class="divider"></div>
+    </div>
+
+    <div class="artwork">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeypress="if(event.key==='Enter') openLightbox(this)">
+            <img src="cadre11.jpg" alt="Champs n°2 - Peinture acrylique par Sylvie Ballard" loading="lazy">
+        </div>
+        <div class="info">
+            <span class="title">Champs n°2</span>
+            <span class="meta">Techniques multiples sur papier 25x25cm</span>
         </div>
     </div>
 
     <div class="artwork">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeypress="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre11.jpg" alt="Réve sur l'eau - Peinture acrylique par Sylvie Ballard" loading="lazy">
+            <img src="cadre12.jpg" alt="Champs n°1 - Peinture acrylique par Sylvie Ballard" loading="lazy">
         </div>
         <div class="info">
-            <span class="title">Réve sur l'eau</span>
-            <span class="meta">Acrylique sur toile 80x80cm</span>
-        </div>
-    </div>
-
-    <div class="artwork">
-        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeypress="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre12.jpg" alt="Rythme suspendu - Peinture acrylique par Sylvie Ballard" loading="lazy">
-        </div>
-        <div class="info">
-            <span class="title">Rythme suspendu</span>
-            <span class="meta">Acrylique sur toile</span>
+            <span class="title">Champs n°1</span>
+            <span class="meta">Techniques multiples sur papier 32x21cm</span>
         </div>
     </div>
 
