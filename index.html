@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sylvie Ballard | Artiste Peintre Villers-Cotterêts | Art Abstrait & Nature</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sylvie Ballard | Artiste Peintre Villers-Cotterêts | Art Abstrait & Nature</title>
+
+<meta name="geo.region" content="FR-02">
+<meta name="geo.placename" content="Villers-Cotterêts">
 <meta name="description" content="Découvrez l'exposition virtuelle de Sylvie Ballard, artiste peintre à Villers-Cotterêts. Peintures acryliques entre abstraction lyrique et poésie végétale.">
 <meta property="og:title" content="Sylvie Ballard - Exposition Virtuelle de Peinture">
 <meta property="og:description" content="Voyage chromatique entre le Jardin de Giverny et les herbes folles. Artiste peintre en Hauts-de-France.">
@@ -12,7 +15,7 @@
 <meta property="og:url" content="https://ifrouche.github.io/Sylvie-BALLARD/">
 <meta name="google-site-verification" content="3HiHQZYncM5YWpE6gguJa-6xmexnixBWKZhsFZEHW9o" />
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
 
     <style>
         :root { 
@@ -75,6 +78,38 @@
             letter-spacing: 3px; 
             text-transform: uppercase;
         }
+        
+        /* Style pour la mise en page Magazine */
+        .bio-flex {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .portrait-bw {
+            width: 220px;
+            height: 220px;
+            border-radius: 5px; /* Un carré légèrement arrondi pour un look galerie moderne */
+            object-fit: cover;
+            filter: grayscale(100%);
+            border: 1px solid #333;
+            box-shadow: 10px 10px 0px var(--title-color); /* Effet de décalage artistique */
+        }
+
+        /* Adaptation pour mobile */
+        @media (max-width: 768px) {
+        .bio-flex {
+            flex-direction: column;
+            text-align: center;
+        }
+        .portrait-bw {
+            width: 180px;
+            height: 180px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+     }
 
         .artist-note p {
             font-weight: 300; 
@@ -194,19 +229,26 @@
     <p class="subtitle">Exposition Virtuelle</p>
 </header>
 
-<section class="artist-note">
-    <h2>Démarche Artistique</h2>
-    <p>
-        Artiste peintre installée à <strong>Villers-Cotterêts</strong> (Hauts-de-France), 
-        <strong>Sylvie Ballard</strong> dédie sa pratique à la <strong>peinture acrylique</strong> et aux techniques mixtes. 
-        Son travail s'articule entre vertiges chromatiques et silence immobile, capturant l'essence des paysages, 
-        du célèbre <strong>Jardin de Giverny</strong> aux herbes folles de nos campagnes.
-    </p>
-    <p> 
-        Chaque toile mêle pastels et pigments pour créer des textures vibrantes. 
-        Son style, à la frontière de l'<strong>abstraction lyrique</strong> et de l'impressionnisme moderne, 
-        invite à une déambulation sensible au cœur de paysages intérieurs et de compositions instinctives.
-    </p>
+<section class="artist-note bio-container">
+    <div class="bio-flex">
+        <div class="bio-image">
+            <img src="portrait-sylvie.jpg" alt="Portrait de l'artiste peintre Sylvie Ballard dans son atelier à Villers-Cotterêts." class="portrait-bw">
+        </div>
+        <div class="bio-text">
+            <h2>Démarche Artistique</h2>
+            <p>
+                Artiste peintre installée à <strong>Villers-Cotterêts</strong> (Hauts-de-France), 
+                <strong>Sylvie Ballard</strong> dédie sa pratique à la <strong>peinture acrylique</strong> et aux techniques mixtes. 
+                Son travail s'articule entre vertiges chromatiques et silence immobile, capturant l'essence des paysages, 
+                du célèbre <strong>Jardin de Giverny</strong> aux herbes folles de nos campagnes.
+            </p>
+            <p> 
+                Chaque toile mêle pastels et pigments pour créer des textures vibrantes. 
+                Son style, à la frontière de l'<strong>abstraction lyrique</strong> et de l'impressionnisme moderne, 
+                invite à une déambulation sensible au cœur de paysages intérieurs et de compositions instinctives.
+            </p>
+        </div>
+    </div>
     <div class="divider"></div>
 </section>
 
@@ -218,7 +260,7 @@
 
     <div class="artwork">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ') openLightbox(this)">
-            <img src="cadre1.jpg" alt="Eclats suspendus - Peinture abstraite acrylique et pastels par Sylvie Ballard" loading="lazy">
+            <img src="cadre1.jpg" alt="Eclats suspendus - Eclats suspendus : peinture abstraite acrylique et pastels par l'artiste Sylvie Ballard." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Eclats suspendus</span>
@@ -228,7 +270,7 @@
 
     <div class="artwork">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre2.jpg" alt="Reflets tremblants - Tableau impressionniste moderne fleurs et eau par Sylvie Ballard" loading="lazy">
+            <img src="cadre2.jpg" alt="Reflets tremblants - Reflets tremblants : tableau impressionniste moderne fleurs et eau, style Giverny." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Reflets tremblants</span>
@@ -238,7 +280,7 @@
 
     <div class="artwork">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre3.jpg" alt="Silence immobile - Peinture abstraite acrylique et pastels par Sylvie Ballard" loading="lazy">
+            <img src="cadre3.jpg" alt="Silence immobile - Silence immobile : grande toile abstraite lyrique aux tons naturels par Sylvie Ballard." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Silence immobile</span>
@@ -248,7 +290,7 @@
 
     <div class="artwork">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre4.jpg" alt="Impulsion florale - Peinture abstraite acrylique par Sylvie Ballard" loading="lazy">
+            <img src="cadre4.jpg" alt="Impulsion florale - Impulsion florale : peinture acrylique contemporaine aux motifs végétaux." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Impulsion florale</span>
@@ -258,7 +300,7 @@
 
     <div class="artwork">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre5.jpg" alt="Eveil nocturne - Peinture abstraite acrylique et pastels par Sylvie Ballard" loading="lazy">
+            <img src="cadre5.jpg" alt="Eveil nocturne - Eveil nocturne : œuvre d'art abstrait aux rehauts de pastels sur toile." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Eveil nocturne</span>
@@ -268,7 +310,7 @@
 
     <div class="artwork">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre6.jpg" alt="Territoires fragmentés - Peinture acrylique par Sylvie Ballard" loading="lazy">
+            <img src="cadre6.jpg" alt="Territoires fragmentés - Territoires fragmentés : peinture acrylique grand format, art contemporain Hauts-de-France." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Territoires fragmentés</span>
@@ -278,7 +320,7 @@
 
     <div class="artwork">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre7.jpg" alt="Douceur indocile - Peinture abstraite acrylique et pastels par Sylvie Ballard" loading="lazy">
+            <img src="cadre7.jpg" alt="Douceur indocile - Douceur indocile : composition abstraite mélangeant acrylique et pastels secs." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Douceur indocile</span>
@@ -288,7 +330,7 @@
 
     <div class="artwork">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre8.jpg" alt="Réve sur l'eau - Peinture acrylique par Sylvie Ballard" loading="lazy">
+            <img src="cadre8.jpg" alt="Rêve sur l'eau - Rêve sur l'eau : tableau bleu et vert évoquant la sérénité aquatique, Sylvie Ballard." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Rêve sur l'eau</span>
@@ -298,7 +340,7 @@
 
     <div class="artwork">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre9.jpg" alt="Rythme suspendu - Peinture acrylique par Sylvie Ballard" loading="lazy">
+            <img src="cadre9.jpg" alt="Rythme suspendu - Rythme suspendu : peinture acrylique sur toile, mouvement et texture." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Rythme suspendu</span>
@@ -308,7 +350,7 @@
 
     <div class="artwork">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre10.jpg" alt="Sans titre - Peinture acrylique et techniques multiples par Sylvie Ballard" loading="lazy">
+            <img src="cadre10.jpg" alt="Sans titre - Composition abstraite sur papier, techniques mixtes et pigments par Sylvie Ballard." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Sans titre</span>
@@ -318,7 +360,7 @@
 
     <div class="artwork">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre13.jpg" alt="Ciel et eau - Peinture acrylique par Sylvie Ballard" loading="lazy">
+            <img src="cadre13.jpg" alt="Ciel et eau - Ciel et eau : marine abstraite, peinture acrylique sur toile 60x80cm." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Ciel et eau</span>
@@ -328,7 +370,7 @@
 
     <div class="artwork">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre14.jpg" alt="Echos végétaux - Peinture acrylique par Sylvie Ballard" loading="lazy">
+            <img src="cadre14.jpg" alt="Echos végétaux - Echos végétaux : art contemporain inspiré par la nature et les jardins." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Echos végétaux</span>
@@ -343,7 +385,7 @@
 
     <div class="artwork">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre11.jpg" alt="Champs n°2 - Art contemporain nature et herbes folles par Sylvie Ballard" loading="lazy">
+            <img src="cadre11.jpg" alt="Champs n°2 - Champs n°2 : illustration contemporaine de nature et herbes folles sur papier." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Champs n°2</span>
@@ -353,7 +395,7 @@
 
     <div class="artwork">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre12.jpg" alt="Champs n°1 - Peinture acrylique par Sylvie Ballard" loading="lazy">
+            <img src="cadre12.jpg" alt="Champs n°1 - Champs n°1 : peinture de paysage abstrait, série Graminées de Sylvie Ballard." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Champs n°1</span>

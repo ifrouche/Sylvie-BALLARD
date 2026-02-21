@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Lien vers votre sitemap pour aider l'indexation
+Sitemap: https://ifrouche.github.io/Sylvie-BALLARD/sitemap.xml
