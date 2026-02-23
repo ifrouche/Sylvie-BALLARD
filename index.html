@@ -60,8 +60,8 @@
         .subtitle { 
             font-family: var(--art-font); 
             font-style: italic; 
-            color: #999; /* Un gris légèrement plus clair pour la lisibilité */
-            font-size: 1.6rem; /* Taille augmentée (était par défaut à 1rem environ) */
+            color: #999;
+            font-size: 1.6rem;
             letter-spacing: 4px; 
             margin-top: 15px;
             font-weight: 300;
@@ -83,7 +83,6 @@
             text-transform: uppercase;
         }
         
-        /* Style pour la mise en page Magazine */
         .bio-flex {
             display: flex;
             align-items: center;
@@ -95,14 +94,13 @@
         .portrait-bw {
             width: 220px;
             height: 220px;
-            border-radius: 5px; /* Un carré légèrement arrondi pour un look galerie moderne */
+            border-radius: 5px;
             object-fit: cover;
             filter: grayscale(100%);
             border: 1px solid #333;
-            box-shadow: 5px 5px 0px var(--title-color); /* Effet de décalage artistique */
+            box-shadow: 5px 5px 0px var(--title-color);
         }
 
-        /* Adaptation pour mobile */
         @media (max-width: 768px) {
         .bio-flex {
             flex-direction: column;
@@ -134,7 +132,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 80px 40px;
-           /* Ajout de cette ligne pour l'alignement par le bas */
            align-items: end; 
         }
         
@@ -142,7 +139,7 @@
            text-align: center;
            display: flex;
            flex-direction: column;
-           justify-content: flex-end; /* Pousse le contenu vers le bas */
+           justify-content: flex-end;
            height: 100%;
         }
         .frame { 
@@ -165,8 +162,8 @@
         }
 
         .info { 
-            margin-top: 30px; /* Espace fixe entre le cadre et le titre */
-            min-height: 60px; /* Réserve un espace constant pour le texte */
+            margin-top: 30px;
+            min-height: 60px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -181,10 +178,10 @@
         }
 
         .section-separator {
-            grid-column: 1 / -1; /* Indispensable pour traverser toute la grille */
+            grid-column: 1 / -1;
             text-align: center;
-            margin-top: 80px;    /* Espace au-dessus du titre */
-            margin-bottom: 40px; /* Espace avant les tableaux */
+            margin-top: 80px;
+            margin-bottom: 40px;
         }
 
         .section-title {
@@ -208,13 +205,30 @@
         #lightbox img { max-width: 90%; max-height: 90%; border: 2px solid #333; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
 
         footer { margin-top: 100px; border-top: 1px solid #222; }
-        .contact-section { text-align: center; padding: 60px 20px; }
+        .contact-section { text-align: center; padding: 40px 20px; }
         .contact-btn {
             display: inline-block; padding: 15px 40px; border: 1px solid var(--title-color); 
             color: var(--title-color); text-decoration: none; letter-spacing: 2px; 
             text-transform: uppercase; font-size: 0.8rem; transition: 0.3s;
         }
         .contact-btn:hover { background: var(--title-color); color: #000; }
+
+        .address-link {
+            display: inline-block;
+            color: var(--title-color);
+            font-family: var(--art-font);
+            font-size: 1.1rem;
+            font-style: italic;
+            letter-spacing: 1px;
+            text-decoration: none;
+            border-bottom: 1px solid #444;
+            padding-bottom: 3px;
+            transition: border-color 0.3s, opacity 0.3s;
+        }
+        .address-link:hover {
+            border-color: var(--title-color);
+            opacity: 0.8;
+        }
         
         .social-links { text-align: center; margin-bottom: 30px; }
         .social-links a { text-decoration: none; margin: 0 12px; transition: opacity 0.3s; }
@@ -407,7 +421,6 @@
         </div>
     </div>
 
-
     </main>
 
 <div id="lightbox" onclick="closeLightbox()" aria-hidden="true" role="dialog">
@@ -416,14 +429,24 @@
 
 <footer>
     <section class="contact-section">
-        <h3 style="font-family: var(--art-font); color: var(--title-color); font-size: 2rem; font-style: italic; margin-bottom: 10px;">
-            Une œuvre vous inspire ?
-        </h3>
+        
         <p style="color: #aaa; max-width: 600px; margin: 0 auto 30px; line-height: 1.6;">
-            Pour toute demande d'acquisition, de projet sur mesure ou simplement pour partager votre ressenti sur cette exposition, n'hésitez pas à me contacter.
+            Pour toute demande d'acquisition, de projet sur mesure ou simplement pour partager votre ressenti , n'hésitez pas à me contacter.
         </p>
         <a href="mailto:sylvie.ballard@yahoo.fr?subject=Demande d'information - Exposition Ballard" class="contact-btn">
             Prendre contact avec l'artiste
+        </a>
+
+        <div class="divider" style="margin-top: 50px;"></div>
+
+        <p style="color: #aaa; max-width: 600px; margin: 30px auto 15px; line-height: 1.6;">
+            Venez aussi decouvrir mes œuvres et mon atelier de restauration d'arts.
+        </p>
+        <a href="https://www.google.com/maps/search/?api=1&query=20+rue+du+General+Mangin+02600+Villers-Cotterets"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="address-link">
+            📍 20 rue du Général Mangin, 02600 Villers-Cotterêts
         </a>
     </section>
 
@@ -461,7 +484,6 @@
         document.body.style.overflow = 'auto';
     }
 
-    // Fermer avec la touche Echap
     document.addEventListener('keydown', (e) => {
         if (e.key === "Escape") closeLightbox();
     });
