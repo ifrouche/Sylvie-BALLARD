@@ -468,25 +468,37 @@
 </footer>
 
 <script>
-    function openLightbox(element) {
+function openLightbox(element) {
         const imgSrc = element.querySelector('img').src;
         const lb = document.getElementById('lightbox');
         const lbImg = document.getElementById('lightbox-img');
+        
         lbImg.src = imgSrc;
         lb.style.display = 'flex';
         setTimeout(() => { lb.classList.add('active'); }, 10);
         document.body.style.overflow = 'hidden';
+        history.pushState({ lightbox: true }, "");
     }
 
-    function closeLightbox() {
+    function closeLightbox(isNavigation = false) {
         const lb = document.getElementById('lightbox');
+        if (!lb.classList.contains('active')) return;
         lb.classList.remove('active');
         setTimeout(() => { lb.style.display = 'none'; }, 300);
         document.body.style.overflow = 'auto';
+        if (!isNavigation) {
+            history.back();
+        }
     }
 
+    window.addEventListener('popstate', () => {
+        closeLightbox(true);
+    });
+
     document.addEventListener('keydown', (e) => {
-        if (e.key === "Escape") closeLightbox();
+        if (e.key === "Escape") {
+            closeLightbox();
+        }
     });
 </script>
 
