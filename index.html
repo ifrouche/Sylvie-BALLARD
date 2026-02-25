@@ -71,7 +71,7 @@
 
         .artist-note {
             max-width: 800px; 
-            margin: 60px auto; 
+            margin: 20px auto; 
             text-align: center; 
             padding: 0 20px;
         }
@@ -122,16 +122,15 @@
             width: 50px; height: 1px; background: var(--title-color); margin: 30px auto;
         }
 
-        /* Utilisation de Flexbox pour l'alignement "cimaises" */
         .container { 
             max-width: 1400px; 
-            margin: 60px auto; 
+            margin: 20px auto; 
             padding: 20px;
             display: flex;
             flex-wrap: wrap;
             gap: 80px 40px;
             justify-content: center;
-            align-items: flex-end; /* Tableaux posés sur une ligne basse */
+            align-items: flex-end; 
         }
         
         .artwork { 
@@ -185,7 +184,7 @@
         .section-separator {
             width: 100%;
             text-align: center;
-            margin-top: 80px;
+            margin-top: 20px;
             margin-bottom: 40px;
         }
 
@@ -369,7 +368,7 @@
         </div>
     </div>
 
-    <div class="artwork" style="--real-width: 30;">
+    <div class="artwork" style="--real-width: 50;">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
             <img src="cadre10.jpg" alt="Sans titre - Composition abstraite sur papier, techniques mixtes et pigments par Sylvie Ballard." loading="lazy">
         </div>
@@ -404,7 +403,7 @@
          <div class="divider"></div>
     </div>
 
-    <div class="artwork" style="--real-width: 30;">
+    <div class="artwork" style="--real-width: 44;">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
             <img src="cadre11.jpg" alt="Champs n°2 - Champs n°2 : illustration contemporaine de nature et herbes folles sur papier." loading="lazy">
         </div>
@@ -414,7 +413,7 @@
         </div>
     </div>
 
-    <div class="artwork" style="--real-width: 37;">
+    <div class="artwork" style="--real-width: 47;">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
             <img src="cadre12.jpg" alt="Champs n°1 - Champs n°1 : peinture de paysage abstrait, série Graminées de Sylvie Ballard." loading="lazy">
         </div>
@@ -433,21 +432,23 @@
 <footer>
     <section class="contact-section">
         
-        <p style="color: #aaa; max-width: 600px; margin: 0 auto 30px; line-height: 1.6;">
-            Pour toute demande d'acquisition, de projet sur mesure ou simplement pour partager votre ressenti , n'hésitez pas à me contacter.
-        </p>
-        <a href="mailto:sylvie.ballard@yahoo.fr?subject=Demande d'information - Exposition Ballard" class="contact-btn">
-            Prendre contact
-        </a>
-        
         <p style="color: #aaa; max-width: 600px; margin: 30px auto 15px; line-height: 1.6;">
             Venez decouvrir mes œuvres et mon atelier de restauration d'arts.
         </p>
+
         <a href="https://www.google.com/maps/search/?api=1&query=20+rue+du+General+Mangin+02600+Villers-Cotterets"
            target="_blank"
            rel="noopener noreferrer"
            class="address-link">
             📍 20 rue du Général Mangin, 02600 Villers-Cotterêts
+        </a>
+        
+        <p style="color: #aaa; max-width: 600px; margin: 30px auto 15px; line-height: 1.6;">
+            Pour toute demande d'acquisition, de projet sur mesure, n'hésitez pas à me contacter.
+        </p>
+
+        <a href="mailto:sylvie.ballard@yahoo.fr?subject=Demande d'information - Exposition Ballard" class="contact-btn">
+            Prendre contact
         </a>
     </section>
 
