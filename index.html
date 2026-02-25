@@ -27,6 +27,8 @@
             --title-color: #D4AF37; 
             --header-font: 'Montserrat', sans-serif;
             --art-font: 'Playfair Display', serif;
+            /* Facteur d'échelle : 1cm = 5px (ajustable selon tes envies) */
+            --scale-factor: 5px; 
         }
 
         body { 
@@ -102,16 +104,11 @@
         }
 
         @media (max-width: 768px) {
-        .bio-flex {
-            flex-direction: column;
-            text-align: center;
+            .bio-flex { flex-direction: column; text-align: center; }
+            .portrait-bw { width: 180px; height: 180px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+            /* Mobile : on ignore l'échelle pour que ce soit lisible */
+            .artwork { width: 100% !important; }
         }
-        .portrait-bw {
-            width: 180px;
-            height: 180px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-     }
 
         .artist-note p {
             font-weight: 300; 
@@ -125,14 +122,16 @@
             width: 50px; height: 1px; background: var(--title-color); margin: 30px auto;
         }
 
+        /* Utilisation de Flexbox pour l'alignement "cimaises" */
         .container { 
-            max-width: 1200px; 
+            max-width: 1400px; 
             margin: 60px auto; 
             padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 80px 40px;
-           align-items: end; 
+            justify-content: center;
+            align-items: flex-end; /* Tableaux posés sur une ligne basse */
         }
         
         .artwork { 
@@ -140,8 +139,12 @@
            display: flex;
            flex-direction: column;
            justify-content: flex-end;
-           height: 100%;
+           /* Calcul de la largeur basé sur les cm réels */
+           width: calc(var(--real-width) * var(--scale-factor));
+           min-width: 200px; /* Sécurité visuelle */
+           max-width: 100%;
         }
+
         .frame { 
             background: #fff; 
             padding: 12px; 
@@ -150,13 +153,15 @@
             cursor: zoom-in; 
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: none;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .frame:hover { transform: scale(1.03); }
         
         .artwork img { 
-            max-width: 100%; 
-            max-height: 70vh; 
+            width: 100%; 
+            height: auto; 
             display: block; 
             border: 1px solid #eee;
         }
@@ -178,7 +183,7 @@
         }
 
         .section-separator {
-            grid-column: 1 / -1;
+            width: 100%;
             text-align: center;
             margin-top: 80px;
             margin-bottom: 40px;
@@ -225,10 +230,7 @@
             padding-bottom: 3px;
             transition: border-color 0.3s, opacity 0.3s;
         }
-        .address-link:hover {
-            border-color: var(--title-color);
-            opacity: 0.8;
-        }
+        .address-link:hover { border-color: var(--title-color); opacity: 0.8; }
         
         .social-links { text-align: center; margin-bottom: 30px; }
         .social-links a { text-decoration: none; margin: 0 12px; transition: opacity 0.3s; }
@@ -276,7 +278,7 @@
         <div class="divider"></div>
     </div>
 
-    <div class="artwork">
+    <div class="artwork" style="--real-width: 78;">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ') openLightbox(this)">
             <img src="cadre1.jpg" alt="Eclats suspendus - Eclats suspendus : peinture abstraite acrylique et pastels par l'artiste Sylvie Ballard." loading="lazy">
         </div>
@@ -286,7 +288,7 @@
         </div>
     </div>
 
-    <div class="artwork">
+    <div class="artwork" style="--real-width: 78;">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
             <img src="cadre2.jpg" alt="Reflets tremblants - Reflets tremblants : tableau impressionniste moderne fleurs et eau, style Giverny." loading="lazy">
         </div>
@@ -296,7 +298,7 @@
         </div>
     </div>
 
-    <div class="artwork">
+    <div class="artwork" style="--real-width: 110;">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
             <img src="cadre3.jpg" alt="Silence immobile - Silence immobile : grande toile abstraite lyrique aux tons naturels par Sylvie Ballard." loading="lazy">
         </div>
@@ -306,17 +308,18 @@
         </div>
     </div>
 
-    <div class="artwork">
+    <div class="artwork" style="--real-width: 48;">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
             <img src="cadre4.jpg" alt="Impulsion florale - Impulsion florale : peinture acrylique contemporaine aux motifs végétaux." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Impulsion florale</span>
             <span class="meta">Acrylique sur toile 50x61cm</span>
+            <br>
         </div>
     </div>
 
-    <div class="artwork">
+    <div class="artwork" style="--real-width: 48;">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
             <img src="cadre5.jpg" alt="Eveil nocturne - Eveil nocturne : œuvre d'art abstrait aux rehauts de pastels sur toile." loading="lazy">
         </div>
@@ -326,7 +329,7 @@
         </div>
     </div>
 
-    <div class="artwork">
+    <div class="artwork" style="--real-width: 70;">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
             <img src="cadre6.jpg" alt="Territoires fragmentés - Territoires fragmentés : peinture acrylique grand format, art contemporain Hauts-de-France." loading="lazy">
         </div>
@@ -336,7 +339,7 @@
         </div>
     </div>
 
-    <div class="artwork">
+    <div class="artwork" style="--real-width: 58;">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
             <img src="cadre7.jpg" alt="Douceur indocile - Douceur indocile : composition abstraite mélangeant acrylique et pastels secs." loading="lazy">
         </div>
@@ -346,7 +349,7 @@
         </div>
     </div>
 
-    <div class="artwork">
+    <div class="artwork" style="--real-width: 78;">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
             <img src="cadre8.jpg" alt="Rêve sur l'eau - Rêve sur l'eau : tableau bleu et vert évoquant la sérénité aquatique, Sylvie Ballard." loading="lazy">
         </div>
@@ -356,7 +359,7 @@
         </div>
     </div>
 
-    <div class="artwork">
+    <div class="artwork" style="--real-width: 45;">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
             <img src="cadre9.jpg" alt="Rythme suspendu - Rythme suspendu : peinture acrylique sur toile, mouvement et texture." loading="lazy">
         </div>
@@ -366,7 +369,7 @@
         </div>
     </div>
 
-    <div class="artwork">
+    <div class="artwork" style="--real-width: 30;">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
             <img src="cadre10.jpg" alt="Sans titre - Composition abstraite sur papier, techniques mixtes et pigments par Sylvie Ballard." loading="lazy">
         </div>
@@ -376,7 +379,7 @@
         </div>
     </div>
 
-    <div class="artwork">
+    <div class="artwork" style="--real-width: 80;">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
             <img src="cadre13.jpg" alt="Ciel et eau - Ciel et eau : marine abstraite, peinture acrylique sur toile 60x80cm." loading="lazy">
         </div>
@@ -386,7 +389,7 @@
         </div>
     </div>
 
-    <div class="artwork">
+    <div class="artwork" style="--real-width: 53;">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
             <img src="cadre14.jpg" alt="Echos végétaux - Echos végétaux : art contemporain inspiré par la nature et les jardins." loading="lazy">
         </div>
@@ -401,7 +404,7 @@
          <div class="divider"></div>
     </div>
 
-    <div class="artwork">
+    <div class="artwork" style="--real-width: 30;">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
             <img src="cadre11.jpg" alt="Champs n°2 - Champs n°2 : illustration contemporaine de nature et herbes folles sur papier." loading="lazy">
         </div>
@@ -411,7 +414,7 @@
         </div>
     </div>
 
-    <div class="artwork">
+    <div class="artwork" style="--real-width: 37;">
         <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
             <img src="cadre12.jpg" alt="Champs n°1 - Champs n°1 : peinture de paysage abstrait, série Graminées de Sylvie Ballard." loading="lazy">
         </div>
@@ -434,13 +437,11 @@
             Pour toute demande d'acquisition, de projet sur mesure ou simplement pour partager votre ressenti , n'hésitez pas à me contacter.
         </p>
         <a href="mailto:sylvie.ballard@yahoo.fr?subject=Demande d'information - Exposition Ballard" class="contact-btn">
-            Prendre contact avec l'artiste
+            Prendre contact
         </a>
-
-        <div class="divider" style="margin-top: 50px;"></div>
-
+        
         <p style="color: #aaa; max-width: 600px; margin: 30px auto 15px; line-height: 1.6;">
-            Venez aussi decouvrir mes œuvres et mon atelier de restauration d'arts.
+            Venez decouvrir mes œuvres et mon atelier de restauration d'arts.
         </p>
         <a href="https://www.google.com/maps/search/?api=1&query=20+rue+du+General+Mangin+02600+Villers-Cotterets"
            target="_blank"
