@@ -28,7 +28,7 @@
             --header-font: 'Montserrat', sans-serif;
             --art-font: 'Playfair Display', serif;
             /* Facteur d'échelle : 1cm = 5px (ajustable selon tes envies) */
-            --scale-factor: 5px; 
+            --scale-factor: 6px; 
         }
 
         body { 
@@ -104,9 +104,9 @@
         }
 
         @media (max-width: 768px) {
+            .container { gap: 40px 20px; }
             .bio-flex { flex-direction: column; text-align: center; }
-            .portrait-bw { width: 180px; height: 180px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-            /* Mobile : on ignore l'échelle pour que ce soit lisible */
+            .portrait-bw { width: 180px; height: 180px; }
             .artwork { width: 100% !important; }
         }
 
@@ -251,7 +251,7 @@
 <section class="artist-note bio-container">
     <div class="bio-flex">
         <div class="bio-image">
-            <img src="portrait-sylvie.jpg" alt="Portrait de l'artiste peintre Sylvie Ballard dans son atelier à Villers-Cotterêts." class="portrait-bw">
+            <img src="portrait-sylvie.webp" alt="Portrait de l'artiste peintre Sylvie Ballard dans son atelier à Villers-Cotterêts." class="portrait-bw">
         </div>
         <div class="bio-text">
             <h2>Démarche Artistique</h2>
@@ -278,18 +278,18 @@
     </div>
 
     <div class="artwork" style="--real-width: 78;">
-        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ') openLightbox(this)">
-            <img src="cadre1.jpg" alt="Eclats suspendus - Eclats suspendus : peinture abstraite acrylique et pastels par l'artiste Sylvie Ballard." loading="lazy">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0">
+            <img src="cadre1.webp" alt="Eclats suspendus - Eclats suspendus : peinture abstraite acrylique et pastels par l'artiste Sylvie Ballard." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Eclats suspendus</span>
-            <span class="meta">Acrylique,pastels,peinture aérosol sur toile,80x80cm</span>
+            <span class="meta">Acrylique, pastels, peinture aérosol sur toile,80x80cm</span>
         </div>
     </div>
 
     <div class="artwork" style="--real-width: 78;">
-        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre2.jpg" alt="Reflets tremblants - Reflets tremblants : tableau impressionniste moderne fleurs et eau, style Giverny." loading="lazy">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0">
+            <img src="cadre2.webp" alt="Reflets tremblants - Reflets tremblants : tableau impressionniste moderne fleurs et eau, style Giverny." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Reflets tremblants</span>
@@ -298,8 +298,8 @@
     </div>
 
     <div class="artwork" style="--real-width: 110;">
-        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre3.jpg" alt="Silence immobile - Silence immobile : grande toile abstraite lyrique aux tons naturels par Sylvie Ballard." loading="lazy">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0">
+            <img src="cadre3.webp" alt="Silence immobile - Silence immobile : grande toile abstraite lyrique aux tons naturels par Sylvie Ballard." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Silence immobile</span>
@@ -308,8 +308,8 @@
     </div>
 
     <div class="artwork" style="--real-width: 48;">
-        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre4.jpg" alt="Impulsion florale - Impulsion florale : peinture acrylique contemporaine aux motifs végétaux." loading="lazy">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0">
+            <img src="cadre4.webp" alt="Impulsion florale - Impulsion florale : peinture acrylique contemporaine aux motifs végétaux." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Impulsion florale</span>
@@ -319,8 +319,8 @@
     </div>
 
     <div class="artwork" style="--real-width: 48;">
-        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre5.jpg" alt="Eveil nocturne - Eveil nocturne : œuvre d'art abstrait aux rehauts de pastels sur toile." loading="lazy">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0">
+            <img src="cadre5.webp" alt="Eveil nocturne - Eveil nocturne : œuvre d'art abstrait aux rehauts de pastels sur toile." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Eveil nocturne</span>
@@ -329,8 +329,8 @@
     </div>
 
     <div class="artwork" style="--real-width: 70;">
-        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre6.jpg" alt="Territoires fragmentés - Territoires fragmentés : peinture acrylique grand format, art contemporain Hauts-de-France." loading="lazy">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0">
+            <img src="cadre6.webp" alt="Territoires fragmentés - Territoires fragmentés : peinture acrylique grand format, art contemporain Hauts-de-France." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Territoires fragmentés</span>
@@ -339,8 +339,8 @@
     </div>
 
     <div class="artwork" style="--real-width: 58;">
-        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre7.jpg" alt="Douceur indocile - Douceur indocile : composition abstraite mélangeant acrylique et pastels secs." loading="lazy">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0">
+            <img src="cadre7.webp" alt="Douceur indocile - Douceur indocile : composition abstraite mélangeant acrylique et pastels secs." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Douceur indocile</span>
@@ -349,8 +349,8 @@
     </div>
 
     <div class="artwork" style="--real-width: 78;">
-        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre8.jpg" alt="Rêve sur l'eau - Rêve sur l'eau : tableau bleu et vert évoquant la sérénité aquatique, Sylvie Ballard." loading="lazy">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0">
+            <img src="cadre8.webp" alt="Rêve sur l'eau - Rêve sur l'eau : tableau bleu et vert évoquant la sérénité aquatique, Sylvie Ballard." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Rêve sur l'eau</span>
@@ -359,8 +359,8 @@
     </div>
 
     <div class="artwork" style="--real-width: 45;">
-        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre9.jpg" alt="Rythme suspendu - Rythme suspendu : peinture acrylique sur toile, mouvement et texture." loading="lazy">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0">
+            <img src="cadre9.webp" alt="Rythme suspendu - Rythme suspendu : peinture acrylique sur toile, mouvement et texture." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Rythme suspendu</span>
@@ -369,8 +369,8 @@
     </div>
 
     <div class="artwork" style="--real-width: 50;">
-        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre10.jpg" alt="Sans titre - Composition abstraite sur papier, techniques mixtes et pigments par Sylvie Ballard." loading="lazy">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0">
+            <img src="cadre10.webp" alt="Sans titre - Composition abstraite sur papier, techniques mixtes et pigments par Sylvie Ballard." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Sans titre</span>
@@ -379,8 +379,8 @@
     </div>
 
     <div class="artwork" style="--real-width: 80;">
-        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre13.jpg" alt="Ciel et eau - Ciel et eau : marine abstraite, peinture acrylique sur toile 60x80cm." loading="lazy">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0">
+            <img src="cadre13.webp" alt="Ciel et eau - Ciel et eau : marine abstraite, peinture acrylique sur toile 60x80cm." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Ciel et eau</span>
@@ -389,8 +389,8 @@
     </div>
 
     <div class="artwork" style="--real-width: 53;">
-        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre14.jpg" alt="Echos végétaux - Echos végétaux : art contemporain inspiré par la nature et les jardins." loading="lazy">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0">
+            <img src="cadre14.webp" alt="Echos végétaux - Echos végétaux : art contemporain inspiré par la nature et les jardins." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Echos végétaux</span>
@@ -404,8 +404,8 @@
     </div>
 
     <div class="artwork" style="--real-width: 44;">
-        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre11.jpg" alt="Champs n°2 - Champs n°2 : illustration contemporaine de nature et herbes folles sur papier." loading="lazy">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0">
+            <img src="cadre11.webp" alt="Champs n°2 - Champs n°2 : illustration contemporaine de nature et herbes folles sur papier." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Champs n°2</span>
@@ -414,8 +414,8 @@
     </div>
 
     <div class="artwork" style="--real-width: 47;">
-        <div class="frame" onclick="openLightbox(this)" tabindex="0" onkeydown="if(event.key==='Enter') openLightbox(this)">
-            <img src="cadre12.jpg" alt="Champs n°1 - Champs n°1 : peinture de paysage abstrait, série Graminées de Sylvie Ballard." loading="lazy">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0">
+            <img src="cadre12.webp" alt="Champs n°1 - Champs n°1 : peinture de paysage abstrait, série Graminées de Sylvie Ballard." loading="lazy">
         </div>
         <div class="info">
             <span class="title">Champs n°1</span>
@@ -433,7 +433,7 @@
     <section class="contact-section">
         
         <p style="color: #aaa; max-width: 600px; margin: 30px auto 15px; line-height: 1.6;">
-            Venez decouvrir mes œuvres et mon atelier de restauration d'arts.
+            Venez découvrir mes œuvres et mon atelier de restauration d'arts.
         </p>
 
         <a href="https://www.google.com/maps/search/?api=1&query=20+rue+du+General+Mangin+02600+Villers-Cotterets"
@@ -481,9 +481,10 @@ function openLightbox(element) {
         history.pushState({ lightbox: true }, "");
     }
 
+    // Gestion de la fermeture
     function closeLightbox(isNavigation = false) {
         const lb = document.getElementById('lightbox');
-        if (!lb.classList.contains('active')) return;
+        if (!lb || !lb.classList.contains('active')) return;
         lb.classList.remove('active');
         setTimeout(() => { lb.style.display = 'none'; }, 300);
         document.body.style.overflow = 'auto';
@@ -492,17 +493,22 @@ function openLightbox(element) {
         }
     }
 
+    // ÉCOUTEUR GLOBAL (C'est ici que la magie opère pour le clavier)
+    document.addEventListener('keydown', (e) => {
+        // Fermer avec Echap
+        if (e.key === "Escape") closeLightbox();
+        
+        // Ouvrir avec Entrée ou Espace quand on est sur un cadre
+        if ((e.key === "Enter" || e.key === " ") && document.activeElement.classList.contains('frame')) {
+            e.preventDefault(); // Évite le scroll avec la barre espace
+            openLightbox(document.activeElement);
+        }
+    });
+
     window.addEventListener('popstate', () => {
         closeLightbox(true);
     });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === "Escape") {
-            closeLightbox();
-        }
-    });
 </script>
-
 <script data-goatcounter="https://ifrouche.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
 </body>
