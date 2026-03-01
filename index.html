@@ -398,6 +398,16 @@
         </div>
     </div>
 
+    <div class="artwork" style="--real-width: 100;">
+        <div class="frame" onclick="openLightbox(this)" tabindex="0">
+            <img src="cadre15.webp" alt="Variations végetale I et II - Variations végetale I et II : art contemporain inspiré par la nature et les jardins." loading="lazy">
+        </div>
+        <div class="info">
+            <span class="title">Variations végetale I et II</span>
+            <span class="meta">Techniques multiples sur papier 33x100cm</span>
+        </div>
+    </div>
+
      <div class="section-separator">
             <h2 class="section-title">Série Graminées et herbes folles</h2>
          <div class="divider"></div>
@@ -469,7 +479,21 @@
 </footer>
 
 <script>
-function openLightbox(element) {
+    // --- NOUVELLES PROTECTIONS ---
+
+    // Bloquer le clic droit
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    // Bloquer les raccourcis clavier (F12, Ctrl+U, Ctrl+Maj+I)
+    document.onkeydown = function(e) {
+        if(e.keyCode == 123) { return false; } // F12
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; } // Inspecter
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } // Source
+    };
+
+    function openLightbox(element) {
         const imgSrc = element.querySelector('img').src;
         const lb = document.getElementById('lightbox');
         const lbImg = document.getElementById('lightbox-img');
